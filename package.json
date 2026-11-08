@@ -1,0 +1,8 @@
+{
+  "name": "moviemr",
+  "version": "0.1.0",
+  "description": "Movie MR: video boards placed in a 3D room with camera paths and notes, made into one MP4 in the browser for 3D software (Lucian Office)",
+  "type": "module",
+  "scripts": { "test": "node --test test/*.test.js" },
+  "license": "BSD-3-Clause"
+}
