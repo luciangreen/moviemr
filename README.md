@@ -1,6 +1,6 @@
 # Movie MR
 
-Movie MR is the film part of [Lucian Office](https://github.com/luciangreen/lucianoffice), inside [LucianOS](https://github.com/luciangreen/lucianos). You place 2D boards showing video, photos or a colour in a 3D room, plan the camera's path, note how each part is meant, and make it all into **one MP4 in the browser**. Beside the MP4 go the notes and a per-frame CSV, so the scene can be rebuilt in 3D software. Recording uses the browser's MediaRecorder rather than ffmpeg, so it works on a Mac and on an iPhone.
+Movie MR is the film part of [Lucian Office](https://github.com/luciangreen/lucianoffice), inside [LucianOS](https://github.com/luciangreen/lucianos). You place 2D boards showing video, photos or a colour in a 3D room, plan the camera's path, note how each part is meant, and make it all into **one video in the browser**: an MP4 where the browser can record MP4 (Chrome, Safari), and a WebM otherwise (Firefox, for one), which some players and editors do not open. Beside the video go the notes and a per-frame CSV, so the scene can be rebuilt in 3D software. Recording uses the browser's MediaRecorder rather than ffmpeg, so it works on a Mac and on an iPhone.
 
 - **Boards**: name, position (x, y, z in metres), turn, tilt and spin, size and opacity.
   - **● Record video** films straight onto the board with the camera (sound too, when there's a microphone).

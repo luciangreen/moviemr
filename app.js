@@ -1,6 +1,7 @@
 // Movie MR (Lucian Office, Phase 9): record video onto 2D boards placed in a 3D room, arrange
 // them in three views, plan the camera's path, note how each part is meant, and make it all
-// into one MP4 in the browser (MediaRecorder, so it works on a Mac and an iPhone).
+// into one video in the browser (MediaRecorder, so it works on a Mac and an iPhone): an MP4
+// where the browser can record MP4, a WebM otherwise.
 import { api } from '/shared/api.js';
 import { apply, characterHandler, deserialise, redo, serialise, toProlog, undo } from './lib/core.js';
 import { corners, deg, project, rad } from './lib/math3d.js';
@@ -362,7 +363,8 @@ async function makeMovie() {
     await binaryWrite(path, blob);
     await api.files.write(`${base}.notes.md`, notesText(s, { title: doc.title }), { mkdirs: true, force: true });
     await api.files.write(`${base}.frames.csv`, framesCSV(s), { mkdirs: true, force: true });
-    $('reply').replaceChildren(`Made ${path} (${blob.type.split(';')[0]}), with its notes and per-frame positions beside it. `, link);
+    const webm = extOf(blob.type) === 'webm' ? ' This browser cannot record MP4, so it is a WebM, which some players and editors do not open; Chrome or Safari make an MP4.' : '';
+    $('reply').replaceChildren(`Made ${path} (${blob.type.split(';')[0]}), with its notes and per-frame positions beside it.${webm} `, link);
   } catch (err) { $('reply').replaceChildren(`Made the video, but ${err.message}. `, link); }
   window.__lastMovie = { size: blob.size, type: blob.type, path };
 }
